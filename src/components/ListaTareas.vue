@@ -1,4 +1,5 @@
 <script>
+import { API_URL } from "../config.js";
 export default {
   data() {
     return {
@@ -9,7 +10,7 @@ export default {
   methods: {
     async cargarTareas() {
       try {
-        const res = await fetch("http://localhost:3000/tareas");
+        const res = await fetch(`${API_URL}/tareas`);
         if (!res.ok) throw new Error("Error en la API");
         this.tareas = await res.json();
         console.log("Tareas cargadas:", this.tareas);
@@ -20,7 +21,7 @@ export default {
     async agregarTarea() {
       if (!this.nuevaTarea.trim()) return;
 
-      const res = await fetch("http://localhost:3000/tareas", {
+      const res = await fetch(`${API_URL}/tareas`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ titulo: this.nuevaTarea }),
@@ -37,7 +38,7 @@ export default {
 
       const nuevoEstado = tarea.estado === "pendiente" ? "completada" : "pendiente";
 
-      const res = await fetch(`http://localhost:3000/tareas/${id}`, {
+      const res = await fetch(`${API_URL}/tareas/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ estado: nuevoEstado }),
@@ -49,7 +50,7 @@ export default {
       const confirmacion = confirm("¿Estás seguro de que deseas eliminar esta tarea?");
       if (!confirmacion) return;
 
-      const res = await fetch(`http://localhost:3000/tareas/${id}`, {
+      const res = await fetch(`${API_URL}/tareas/${id}`, {
         method: "DELETE",
       });
 
