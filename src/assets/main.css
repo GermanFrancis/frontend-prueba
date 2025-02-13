@@ -1,0 +1,104 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+  color: red;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.input-container {
+  margin-bottom: 10px;
+}
+input {
+  padding: 8px;
+  width: 70%;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn-pendiente {
+  background-color: red;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-pendiente:hover {
+  background-color: darkred;
+}
+
+.btn-completada {
+  background-color: green;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-completada:hover {
+  background-color: darkgreen;
+}
+
+button {
+  padding: 8px 12px;
+  border: none;
+  background: #28a745;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background: #218838;
+}
+
+.btn-eliminar {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.btn-eliminar:hover {
+  background-color: darkblue;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+  background: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+}
+.completada {
+  text-decoration: line-through;
+  color: gray;
+}
