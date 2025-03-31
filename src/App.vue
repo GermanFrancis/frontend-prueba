@@ -11,28 +11,28 @@ onMounted(cargarTareas);
 
 <template>
   <div class="d-flex justify-content-center align-items-center vh-100">
-    <div class="card w-50">
-      <div class="card-header">
+    <div class="card w-50 text-bg-dark ">
+      <div class="card-header text-center">
+        <i class="bi bi-list-task"></i>
         Lista de Tareas
       </div>
       <div class="card-body">
-        <div class="row g-1 mb-3">
-          <div class="col-sm-9">
+        <div class="row g-2 mb-3">
+          <div class="col-11">
             <input v-model="nuevaTarea" class="form-control" type="text" placeholder="Nueva tarea" aria-label="entrada">
           </div>
-          <div class="col-auto">
-            <button @click="agregarTarea(nuevaTarea)" class="btn btn-success">Agregar</button>
+          <div class="col-1 text-end">
+            <button @click="agregarTarea(nuevaTarea)" class="btn btn-success m-0">
+              <i class="bi bi-plus-square-fill"></i>
+            </button>
           </div>
         </div>
         <div>
           <ul class="list-group">
-            <TareaComponent v-for="tarea in tareas" :key="tarea.id" :tarea="tarea" :completarTarea="completarTarea"
-              :eliminarTarea="eliminarTarea" />
+            <TareaComponent v-for="tarea in tareas" :key="tarea.id" :tarea="tarea" @completarTarea="completarTarea"
+              @eliminarTarea="eliminarTarea" />
           </ul>
         </div>
-      </div>
-      <div class="card-footer text-body-secondary">
-        Powered by Bootstrap
       </div>
     </div>
   </div>

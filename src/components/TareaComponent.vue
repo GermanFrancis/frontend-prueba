@@ -1,24 +1,26 @@
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, defineEmits } from "vue";
+const emit = defineEmits(["completarTarea", "eliminarTarea"]);
+defineProps({ tarea: Object });
 
-defineProps({
-  tarea: Object,
-  completarTarea: Function,
-  eliminarTarea: Function,
-});
+const completarTarea = (id) => {
+  emit("completarTarea", id);
+};
+const eliminarTarea = (id) => {
+  emit("eliminarTarea", id);
+};
 </script>
 
 <template>
-  <li class="list-group-item">
-    <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
-    <label class="form-check-label" for="firstCheckbox">{{ tarea.titulo }}</label>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    {{ tarea.titulo }}
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
       <button @click="completarTarea(tarea.id)"
         :class="{ 'btn btn-warning': tarea.estado === 'pendiente', 'btn btn-success': tarea.estado === 'completada' }">
         {{ tarea.estado === "pendiente" ? "Pendiente" : "Completada" }}
       </button>
       <button @click="eliminarTarea(tarea.id)" class="btn btn-danger">
-        🗑️
+        <i class="bi bi-trash3-fill"></i>
       </button>
     </div>
   </li>
